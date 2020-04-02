@@ -13,6 +13,7 @@ $(TARGETS):
 .PHONY: $(TARGETS)
 
 # Project-specific targets go here
+validate: vendor/modules.txt
 
 else
 
@@ -24,6 +25,8 @@ deploy: dapper-image
 
 dapper-image:
 	SCRIPTS_DIR=./scripts/shared ./scripts/dapper-image
+
+.DEFAULT_GOAL := validate
 # Shipyard-specific ends
 
 include Makefile.dapper
